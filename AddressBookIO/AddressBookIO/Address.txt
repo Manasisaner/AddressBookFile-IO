@@ -1,0 +1,15 @@
+﻿Persons detail 
+FirstName: ankita
+LastName: khairnar
+City    : nashik
+Email   : ankita@
+State   : maharashtra
+PhoneNum: 9145236598
+ 
+Persons detail 
+FirstName: sachin
+LastName: patil
+City    : pune
+Email   : sachin@
+State   : maharashtra
+PhoneNum: 9823562141
