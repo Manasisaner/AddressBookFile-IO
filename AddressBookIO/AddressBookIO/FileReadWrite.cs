@@ -75,5 +75,20 @@ namespace AddressBookIO
                 Console.WriteLine("No such file exists");
             }
         }
+        public static void ReadContactsFromJSONFile()
+        {
+            if (File.Exists(filePathJson))
+            {
+                IList<Person> contactsRead = JsonConvert.DeserializeObject<IList<Person>>(File.ReadAllText(filePathJson));
+                foreach (Person contact in contactsRead)
+                {
+                    Console.Write(contact.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("No such file exists");
+            }
+        }
     }
 }

@@ -46,5 +46,76 @@ namespace AddressBookIO
                 Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
             }
         }
+        public void displayPersonInOrderByCity()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.city))
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
+
+        public void displayPersonInOrderByState()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.state))
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
+
+        public void displayPersonInOrderByZip()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.zip))
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
+        public void searchPerson()
+        {
+            Console.WriteLine("\n Enter city or state ");
+            string city = Console.ReadLine();
+            string state = Console.ReadLine();
+            //findall method is used to retrive all the elements that match the conditions define the specified predeicate
+            foreach (Person person in adressBookList.FindAll(item => item.city == city && item.state == state).ToList())
+            {
+                Console.WriteLine("\n{0}\t{1}", person.firstName, person.lastName);
+            }
+        }
+
+        public void sameCityPerson()
+        {
+            Console.WriteLine("\n Enter city for display Same city contacts ");
+            string city = Console.ReadLine();
+            foreach (Person person in adressBookList.FindAll(item => item.city == city).ToList())
+            {
+                Console.WriteLine("\n{0}\t{1}", person.firstName, person.lastName);
+            }
+        }
+
+        public void sameStatePerson()
+        {
+            Console.WriteLine("\n Enter state for display Same State contacts ");
+            string stateCheck = Console.ReadLine();
+            foreach (Person person in adressBookList.FindAll(item => item.state == stateCheck).ToList())
+            {
+                Console.WriteLine("\n{0}\t{1}", person.firstName, person.lastName);
+            }
+        }
+
+        public void findCountSameStateOrCityPerson()
+        {
+            Console.WriteLine("\n Enter city and state");
+            string city = Console.ReadLine();
+            string state = Console.ReadLine();
+            int count2 = 0;
+            foreach (Person person in adressBookList.FindAll(item => item.city == city && item.state == state).ToList())
+            {
+                Console.WriteLine("\n{0}\t{1}", person.firstName, person.lastName);
+                count2++;
+            }
+            Console.WriteLine("This {0} persons are in same state {1} \t {2} ", count2, state, city);
+        }
     }
 }
