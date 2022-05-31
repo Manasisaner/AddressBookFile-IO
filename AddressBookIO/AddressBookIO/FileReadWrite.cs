@@ -37,5 +37,43 @@ namespace AddressBookIO
                 Console.WriteLine("No such file exists");
             }
         }
+
+
+        public static void ReadContactsInCSVFile()
+        {
+            if (File.Exists(FilePathCsv))
+            {
+                string[] csv = File.ReadAllLines(FilePathCsv);
+                foreach (string csValues in csv)
+                {
+                    string[] column = csValues.Split(',');
+                    foreach (string CSValues in column)
+                    {
+                        Console.WriteLine(CSValues);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No such file exists");
+            }
+        }
+        public static void WriteContactsInJSONFile(List<Person> contacts)
+        {
+            if (File.Exists(filePathJson))
+            {
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                using (StreamWriter streamWriter = new StreamWriter(filePathJson))
+                using (JsonWriter writer = new JsonTextWriter(streamWriter))
+                {
+                    jsonSerializer.Serialize(writer, contacts);
+                }
+                Console.WriteLine("Writting Contacts to the JSON file");
+            }
+            else
+            {
+                Console.WriteLine("No such file exists");
+            }
+        }
     }
 }

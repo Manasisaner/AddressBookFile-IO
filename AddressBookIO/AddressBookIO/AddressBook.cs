@@ -29,5 +29,22 @@ namespace AddressBookIO
                 Console.WriteLine("{0}{1} this contact already exist in Address Book :", firstName, lastName);
             }
         }
+        public void displayPerson()
+        {
+            Console.WriteLine("\nEntered Person Details is:");
+            foreach (var person in adressBookList)
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
+
+        public void displayPersonInOrder()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.firstName))//orderBy sorts the vlues of collection in ascending or decending order
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
     }
 }
