@@ -90,5 +90,10 @@ namespace AddressBookIO
                 Console.WriteLine("No such file exists");
             }
         }
+
+        internal static void ReadTxtFile()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

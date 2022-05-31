@@ -117,5 +117,27 @@ namespace AddressBookIO
             }
             Console.WriteLine("This {0} persons are in same state {1} \t {2} ", count2, state, city);
         }
+
+        public void WritePersonDetailTextFile()
+        {
+            FileReadWrite.WriteTxtFile(adressBookList);
+        }
+
+        public void ReadPersonDetailTxtFile()
+        {
+            FileReadWrite.ReadTxtFile();
+        }
+
+        public void WritePersonDetailCsvFile()
+        {
+            FileReadWrite.writeIntoCsvFile(adressBookList);
+        }
+
+        public void ReadPersonDetailCsvFile()
+        {
+            FileReadWrite.ReadContactsInCSVFile();
+        }
+ 
+
     }
 }
